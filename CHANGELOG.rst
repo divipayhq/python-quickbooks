@@ -1,7 +1,8 @@
 Changelog
 =========
 * 0.8.2 (March 7th, 2022)
-    * Added Preferences object to allow query of BookClosedDate
+    * Added Preferences object to allow query of BookClosedDate.
+    * Updated unit tests to use assertEqual instead of assertEquals which is depracated.
 
 * 0.8.1 (September 18th, 2019)
     * Dropped support for Python 2.7 and 3.3

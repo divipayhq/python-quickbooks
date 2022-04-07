@@ -29,10 +29,10 @@ class InvoiceTest(QuickbooksTestCase):
 
         query_invoice = Invoice.get(invoice.Id, qb=self.qb_client)
 
-        self.assertEquals(query_invoice.CustomerRef.name, customer.DisplayName)
-        self.assertEquals(query_invoice.CustomerMemo.value, "Customer Memo")
-        self.assertEquals(query_invoice.Line[0].Description, "description")
-        self.assertEquals(query_invoice.Line[0].Amount, 100.0)
+        self.assertEqual(query_invoice.CustomerRef.name, customer.DisplayName)
+        self.assertEqual(query_invoice.CustomerMemo.value, "Customer Memo")
+        self.assertEqual(query_invoice.Line[0].Description, "description")
+        self.assertEqual(query_invoice.Line[0].Amount, 100.0)
 
     def test_delete(self):
         # First create an invoice
