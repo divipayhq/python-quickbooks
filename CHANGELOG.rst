@@ -1,5 +1,7 @@
 Changelog
 =========
+* 0.8.2 (March 7th, 2022)
+    * Added Preferences object to allow query of BookClosedDate
 
 * 0.8.1 (September 18th, 2019)
     * Dropped support for Python 2.7 and 3.3
