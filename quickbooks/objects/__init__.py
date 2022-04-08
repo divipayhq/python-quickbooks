@@ -36,8 +36,8 @@ from .journalentry import (
 )
 from .payment import PaymentLine, Payment
 from .paymentmethod import PaymentMethod
-from .preferences import Preferences
 from .purchase import Purchase
+from .preferences import Preferences
 from .purchaseorder import PurchaseOrder
 from .refundreceipt import RefundReceipt
 from .salesreceipt import SalesReceipt

@@ -1,4 +1,5 @@
 import datetime
+import pytest
 import unittest
 
 from quickbooks import QuickBooks
@@ -13,21 +14,25 @@ def check_valid_date(date_text):
       raise ValueError("Incorrect data format, should be YYYY-MM-DD")
 
 
-class PreferencesTests(unittest.TestCase):
-    def test_unicode(self):
-        preferences = Preferences()
+def test_unicode():
+    preferences = Preferences()
 
-        self.assertEqual(str(preferences), "Preferences")
+    assert str(preferences) == "Preferences"
 
-    def test_valid_date(self):
-        preferences = Preferences()
-        preferences.BookDateClosed = "2022-04-07"
 
-        self.assertEqual(check_valid_date(preferences.BookDateClosed), True)
+def test_valid_date():
+    preferences = Preferences()
+    preferences.BookDateClosed = "2022-04-07"
 
-    def test_valid_object_name(self):
-        obj = Preferences()
-        client = QuickBooks()
-        result = client.isvalid_object_name(obj.qbo_object_name)
+    assert check_valid_date(preferences.BookDateClosed) == True
 
-        self.assertTrue(result)
+    with pytest.raises(ValueError):
+        check_valid_date("2022-04-07 10:46:32 AM")
+
+
+def test_valid_object_name():
+    obj = Preferences()
+    client = QuickBooks()
+    result = client.isvalid_object_name(obj.qbo_object_name)
+
+    assert result == True
