@@ -9,7 +9,7 @@ class TermTests(unittest.TestCase):
         term = Term()
         term.Name = "test"
 
-        self.assertEquals(str(term), "test")
+        self.assertEqual(str(term), "test")
 
     def test_valid_object_name(self):
         obj = Term()

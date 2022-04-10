@@ -30,8 +30,8 @@ class ClientTest(QuickbooksUnitTestCase):
             verifier_token=TEST_VERIFIER_TOKEN,
         )
 
-        self.assertEquals(self.qb_client.company_id, "company_id")
-        self.assertEquals(self.qb_client.minorversion, 4)
+        self.assertEqual(self.qb_client.company_id, "company_id")
+        self.assertEqual(self.qb_client.minorversion, 4)
 
     def test_client_updated(self):
         self.qb_client = client.QuickBooks(
@@ -44,11 +44,11 @@ class ClientTest(QuickbooksUnitTestCase):
             company_id="update_company_id",
         )
 
-        self.assertEquals(self.qb_client.sandbox, True)
-        self.assertEquals(self.qb_client.company_id, "update_company_id")
+        self.assertEqual(self.qb_client.sandbox, True)
+        self.assertEqual(self.qb_client.company_id, "update_company_id")
 
-        self.assertEquals(self.qb_client2.sandbox, True)
-        self.assertEquals(self.qb_client2.company_id, "update_company_id")
+        self.assertEqual(self.qb_client2.sandbox, True)
+        self.assertEqual(self.qb_client2.company_id, "update_company_id")
 
     def test_disable_global(self):
         client.QuickBooks.disable_global()
@@ -74,7 +74,7 @@ class ClientTest(QuickbooksUnitTestCase):
         qb_client = client.QuickBooks()
         result = qb_client.isvalid_object_name("Customer")
 
-        self.assertEquals(result, True)
+        self.assertEqual(result, True)
 
     def test_isvalid_object_name_invalid(self):
         qb_client = client.QuickBooks()
@@ -139,7 +139,7 @@ class ClientTest(QuickbooksUnitTestCase):
         qb_client = client.QuickBooks()
 
         instance = qb_client.get_instance()
-        self.assertEquals(qb_client, instance)
+        self.assertEqual(qb_client, instance)
 
     @patch('quickbooks.client.QuickBooks.make_request')
     def test_get_single_object(self, make_req):
